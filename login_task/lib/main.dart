@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-
+import 'package:mdi/mdi.dart';
+import 'package:calculator_task/main.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -35,6 +36,18 @@ class _MyHomePageState extends State<MyHomePage> {
       home: Scaffold(
         backgroundColor: Color(0xFF1E1E1E),
          appBar: AppBar(
+          actions: [
+            IconButton( 
+              onPressed: () => {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => CalculatorPage(
+                  title: "Calculator"
+                  )
+                )
+                )
+              }, 
+              icon: Icon(Mdi.calculator))
+          ],
         centerTitle: true,
         title: Text('Titled Container'),
       ),

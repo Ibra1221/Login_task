@@ -30,7 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  mdi: 5.0.0-nullsafety.0
+  calculator_task:
+    path: "C:/Users/HP_Laptop/leggera/calc_repo/calculator_task/repo"
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
