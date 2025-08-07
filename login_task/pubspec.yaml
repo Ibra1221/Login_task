@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets\images\Login.png
     - assets\images\Mobile login-rafiki.png
+    - assets\images\signup 2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -93,6 +94,9 @@ flutter:
       - family: Roboto
         fonts:
           - asset: assets\fonts\roboto.regular.ttf
+      - family: Inter
+        fonts:
+          - asset: assets\fonts\Inter-Regular.otf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

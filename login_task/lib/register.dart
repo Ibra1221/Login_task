@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
-import 'package:calculator_task/main.dart';
-import 'register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,52 +7,35 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const RegisterPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RegisterPageState extends State<RegisterPage> {
   bool isHovering = false;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
         backgroundColor: Color(0xFF1E1E1E),
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CalculatorPage(title: "Calculator"),
-                  ),
-                ),
-              },
-              icon: Icon(Mdi.calculator),
-            ),
-          ],
-          centerTitle: true,
-          title: Text('Titled Container'),
-        ),
+        appBar: AppBar(centerTitle: true, title: Text('Register')),
         body: SingleChildScrollView(
           child: Center(
             child: SizedBox(
@@ -68,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Align(
                       alignment: AlignmentGeometry.xy(-1, -1),
                       child: Text(
-                        "Login",
+                        "SignUp",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -80,21 +61,32 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        SizedBox(
+                          height: 24,
+                          width: 417,
+                          child:  Align(
+                            alignment: Alignment.centerLeft,
+                            child: IconButton(
+                          onPressed: () => {Navigator.pop(context)},
+                          icon: Icon(Mdi.arrowLeft, color: Color(0xFF0077B6)),
+                        ),
+                          )
+                        ),
                         SizedBox.square(
                           dimension: 225,
                           child: Image.asset(
-                            "assets/images/Mobile login-rafiki.png",
+                            "assets/images/signup 2.png",
                           ),
                         ),
                         Padding(padding: EdgeInsets.all(10)),
                         Container(
                           margin: EdgeInsets.all(10),
-                          width: 109,
+                          width: 156,
                           height: 68,
                           child: Align(
                             alignment: Alignment(-10, -4),
                             child: Text(
-                              "Login",
+                              "Register",
                               style: TextStyle(
                                 color: Color(0xFF33363F),
                                 fontFamily: "Poppins",
@@ -108,12 +100,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           padding: const EdgeInsets.only(left: 28),
                           child: SizedBox(
                             width: 311,
-                            height: 244,
+                            height: 274,
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 SizedBox(
                                   width: 311,
-                                  height: 53,
+                                  height: 41,
                                   child: TextFormField(
                                     decoration: const InputDecoration(
                                       border: UnderlineInputBorder(
@@ -140,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 SizedBox(
                                   width: 311,
-                                  height: 50,
+                                  height: 41,
                                   child: TextFormField(
                                     decoration: const InputDecoration(
                                       border: UnderlineInputBorder(
@@ -165,23 +158,48 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    bottom: 10,
-                                    left: 188,
-                                  ),
-                                  child: SizedBox(
-                                    width: 123,
-                                    height: 35,
-                                    child: Center(
-                                      child: Text(
-                                        "Forgot Password?",
-                                        style: TextStyle(
-                                          fontFamily: "Roboto",
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w300,
-                                          color: Color(0xFF0077B6),
+                                SizedBox(
+                                  width: 311,
+                                  height: 41,
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                      border: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFBABABA),
+                                          width: 0.5,
                                         ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFBABABA),
+                                          width: 0.5,
+                                        ),
+                                      ),
+                                      labelText: "Confirm Password",
+                                      labelStyle: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(0xFF757575),
+                                        fontFamily: "Roboto",
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                TextButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: WidgetStateProperty.all(
+                                      Color(0xFF0077B6),
+                                    ),
+                                  ),
+                                  onPressed: () => {},
+                                  child: Center(
+                                    child: Text(
+                                      "Register",
+                                      style: TextStyle(
+                                        fontFamily: "Roboto",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFFFFFFF),
                                       ),
                                     ),
                                   ),
@@ -190,55 +208,24 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 311,
-                          height: 48,
-                          child: TextButton(
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all(
-                                Color(0xFF0077B6),
-                              ),
-                            ),
-                            onPressed: () => {},
-                            child: Center(
-                              child: Text(
-                                "Login",
-                                style: TextStyle(
-                                  fontFamily: "Roboto",
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xFFFFFFFF),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
+                      Padding(
                                   padding: EdgeInsets.only(top: 87),
                                   child: SizedBox(
                                     width: 222,
                                     height: 25,
-                                    child: Center(
-                                      child: InkWell(
+                                    child: InkWell(
                                       onHover: (hovering) {
                                         setState(() {
                                           isHovering = hovering;
                                         });
                                       },
                                       onTap: () => {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => RegisterPage(
-                                              title: "SignUp"
-                                              )
-                                          ) 
-                                        )
+                                        Navigator.pop(context)
                                       },
                                       child: RichText(
                                         text: TextSpan(
 
-                                          text: "New here? ",
+                                          text: "Already have an account? ",
                                           style: TextStyle(
                                             color: Color(0xFF757575),
                                             fontSize: 14,
@@ -247,26 +234,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                           children: <TextSpan>[
                                             TextSpan(
-                                              text: ' Register',
+                                              text: ' Login',
                                               style: TextStyle(
                                                 color: Color(0xFF4285F4),
                                                 fontSize: 14,
                                                 fontFamily: "Inter",
                                                 fontWeight: FontWeight.w400,
                                                 decoration: 
-                                                (isHovering) ? 
+                                                isHovering ? 
                                                 TextDecoration.underline
-                                                : null,
-                                                decorationColor: (isHovering)?
+                                                : TextDecoration.overline,
+                                                decorationColor: isHovering?
                                                  Color(0xFF4A9DF8) :
-                                                 null
+                                                 Colors.red
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
                                     ),
-                                    )
                                   ),
                                 ),
                       ],
