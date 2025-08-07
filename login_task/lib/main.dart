@@ -51,8 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Text('Titled Container'),
       ),
-        body: 
-        Center(
+        body: SingleChildScrollView(
+          child:  Center(
          child:  SizedBox(
             height: 940,
             width: 417,
@@ -222,7 +222,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           )
-        ))
+        ),
+        )
+       )
            );
   }
   
