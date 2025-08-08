@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
-
+import 'profile.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -29,6 +29,13 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   bool isHovering = false;
+  final TextEditingController nameController = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    nameController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -108,6 +115,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   width: 311,
                                   height: 41,
                                   child: TextFormField(
+                                    controller: nameController,
                                     decoration: const InputDecoration(
                                       border: UnderlineInputBorder(
                                         borderSide: BorderSide(
@@ -121,7 +129,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                           width: 0.5,
                                         ),
                                       ),
-                                      labelText: "Email",
+                                      labelText: "Name/Email",
                                       labelStyle: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400,
@@ -135,6 +143,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   width: 311,
                                   height: 41,
                                   child: TextFormField(
+                                    obscureText: true,
                                     decoration: const InputDecoration(
                                       border: UnderlineInputBorder(
                                         borderSide: BorderSide(
@@ -162,6 +171,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   width: 311,
                                   height: 41,
                                   child: TextFormField(
+                                    obscureText: true,
                                     decoration: const InputDecoration(
                                       border: UnderlineInputBorder(
                                         borderSide: BorderSide(
@@ -191,7 +201,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                       Color(0xFF0077B6),
                                     ),
                                   ),
-                                  onPressed: () => {},
+                                  onPressed: () => {
+                                   // String fName = nameController.text,
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ProfilePage(),
+                                        settings: RouteSettings(
+                                          arguments: nameController.text
+                                          )
+                                        )
+                                    )
+                                  },
                                   child: Center(
                                     child: Text(
                                       "Register",

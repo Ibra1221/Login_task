@@ -142,6 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   width: 311,
                                   height: 50,
                                   child: TextFormField(
+                                    obscureText: true,
                                     decoration: const InputDecoration(
                                       border: UnderlineInputBorder(
                                         borderSide: BorderSide(
