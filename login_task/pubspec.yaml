@@ -39,6 +39,7 @@ dependencies:
   flutter_titled_container: ^1.0.7
   profile_card:
     path: "C:/Users/HP_Laptop/leggera/profile_card"
+  function_tree: ^0.9.1
 
 dev_dependencies:
   flutter_test:

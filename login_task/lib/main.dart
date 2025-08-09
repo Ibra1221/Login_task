@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
-import 'package:calculator_task/main.dart';
+import 'calculator.dart';
 import 'register.dart';
 
 void main() {
